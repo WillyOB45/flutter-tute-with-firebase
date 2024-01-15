@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "192451838179",
+    "project_id": "tuteflutter",
+    "storage_bucket": "tuteflutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:192451838179:android:eb1abea72d0b61466d85d6",
+        "android_client_info": {
+          "package_name": "com.example.flutter_tute"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5G7-OuYCfUSWfze2xPeOQMT7LwkRfpgo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
