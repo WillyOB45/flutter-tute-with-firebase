@@ -3,20 +3,20 @@ import 'package:flutter_tute/pages/util/aquaretitiles.dart';
 import 'package:flutter_tute/pages/util/my_button.dart';
 import 'package:flutter_tute/pages/util/my_textfield.dart';
 
-// ignore: camel_case_types
-class loginPage extends StatefulWidget {
-  loginPage({
+class registerpage extends StatefulWidget {
+  registerpage({
     super.key,
   });
 
   @override
-  State<loginPage> createState() => _loginPageState();
+  State<registerpage> createState() => _registerpageState();
 }
 
-class _loginPageState extends State<loginPage> {
+class _registerpageState extends State<registerpage> {
   final TextEditingController _emailcontroller = TextEditingController();
-
   final TextEditingController _passwordcontroller = TextEditingController();
+  final TextEditingController _confirmpasswordcontroller =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +46,7 @@ class _loginPageState extends State<loginPage> {
 
               //welcome message
               const Text(
-                "welcome! you are be missed",
+                "let's create an account for you!",
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.grey,
@@ -76,6 +76,16 @@ class _loginPageState extends State<loginPage> {
                 height: 10,
               ),
 
+              //confirm password textfield
+              my_textfield(
+                  controller: _confirmpasswordcontroller,
+                  hintText: "confirm password",
+                  obscureText: true),
+
+              const SizedBox(
+                height: 10,
+              ),
+
               Container(
                 alignment: Alignment.centerRight,
                 child: const Text(
@@ -90,7 +100,8 @@ class _loginPageState extends State<loginPage> {
               ),
 
               //my button
-              GestureDetector(onTap: () {}, child: my_button(title: "Log in")),
+              GestureDetector(
+                  onTap: () {}, child: my_button(title: "register")),
 
               const SizedBox(
                 height: 30,
@@ -100,7 +111,7 @@ class _loginPageState extends State<loginPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "don't have an account?",
+                    "already have an account?",
                     style:
                         TextStyle(color: Colors.grey.shade900, fontSize: (15)),
                   ),
@@ -109,7 +120,7 @@ class _loginPageState extends State<loginPage> {
                   ),
                   GestureDetector(
                     child: Text(
-                      "register here",
+                      "login here",
                       style: TextStyle(
                           color: Colors.grey.shade500, fontSize: (15)),
                     ),
