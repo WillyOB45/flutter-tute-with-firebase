@@ -11,7 +11,7 @@ class loginorRegister extends StatefulWidget {
 
 class _loginorRegisterState extends State<loginorRegister> {
   // initialize showpage
-  bool showpage = true;
+  bool showpage = false;
 
   // toggles betwwen login or register pages
 
@@ -25,12 +25,12 @@ class _loginorRegisterState extends State<loginorRegister> {
   Widget build(BuildContext context) {
     if (showpage) {
       return loginPage(
-          // onTap: _togglespages,
-          );
+        onTap: _togglespages,
+      );
     } else {
       return registerpage(
-          // onTap: _togglespages,
-          );
+        onPressed: _togglespages,
+      );
     }
   }
 }

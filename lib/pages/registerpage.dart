@@ -4,9 +4,8 @@ import 'package:flutter_tute/pages/util/my_button.dart';
 import 'package:flutter_tute/pages/util/my_textfield.dart';
 
 class registerpage extends StatefulWidget {
-  registerpage({
-    super.key,
-  });
+  void Function()? onPressed;
+  registerpage({super.key, required this.onPressed});
 
   @override
   State<registerpage> createState() => _registerpageState();
@@ -108,29 +107,6 @@ class _registerpageState extends State<registerpage> {
               ),
 
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "already have an account?",
-                    style:
-                        TextStyle(color: Colors.grey.shade900, fontSize: (15)),
-                  ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  GestureDetector(
-                    child: Text(
-                      "login here",
-                      style: TextStyle(
-                          color: Colors.grey.shade500, fontSize: (15)),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Row(
                 children: [
                   Expanded(
                       child: Divider(
@@ -167,6 +143,33 @@ class _registerpageState extends State<registerpage> {
                     imagepath: "assets/applelogo.png",
                   ),
                 ],
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "already have an account?",
+                    style:
+                        TextStyle(color: Colors.grey.shade900, fontSize: (15)),
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  TextButton(
+                    onPressed: widget.onPressed,
+                    child: Text(
+                      "login here",
+                      style: TextStyle(
+                          color: Colors.grey.shade500, fontSize: (15)),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 30,
               ),
             ],
           ),

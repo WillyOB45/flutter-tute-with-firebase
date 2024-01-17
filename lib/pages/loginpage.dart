@@ -5,9 +5,9 @@ import 'package:flutter_tute/pages/util/my_textfield.dart';
 
 // ignore: camel_case_types
 class loginPage extends StatefulWidget {
-  loginPage({
-    super.key,
-  });
+  void Function()? onTap;
+
+  loginPage({super.key, required this.onTap});
 
   @override
   State<loginPage> createState() => _loginPageState();
@@ -97,29 +97,6 @@ class _loginPageState extends State<loginPage> {
               ),
 
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "don't have an account?",
-                    style:
-                        TextStyle(color: Colors.grey.shade900, fontSize: (15)),
-                  ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  GestureDetector(
-                    child: Text(
-                      "register here",
-                      style: TextStyle(
-                          color: Colors.grey.shade500, fontSize: (15)),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Row(
                 children: [
                   Expanded(
                       child: Divider(
@@ -156,6 +133,33 @@ class _loginPageState extends State<loginPage> {
                     imagepath: "assets/applelogo.png",
                   ),
                 ],
+              ),
+              const SizedBox(
+                height: 70,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "don't have an account?",
+                    style:
+                        TextStyle(color: Colors.grey.shade900, fontSize: (15)),
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  GestureDetector(
+                    onTap: widget.onTap,
+                    child: Text(
+                      "register here",
+                      style: TextStyle(
+                          color: Colors.grey.shade500, fontSize: (15)),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 30,
               ),
             ],
           ),
