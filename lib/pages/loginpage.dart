@@ -78,9 +78,9 @@ class _loginPageState extends State<loginPage> {
 
               Container(
                 alignment: Alignment.centerRight,
-                child: const Text(
-                  "forget password?",
-                  style: TextStyle(fontSize: (17)),
+                child: Text(
+                  "Forget password?",
+                  style: TextStyle(fontSize: (17), color: Colors.grey.shade500),
                   textAlign: TextAlign.right,
                 ),
               ),
@@ -101,17 +101,17 @@ class _loginPageState extends State<loginPage> {
                   Expanded(
                       child: Divider(
                     thickness: 2,
-                    color: Colors.grey.shade400,
+                    color: Colors.grey.shade500,
                   )),
                   Text(
                     "or continue with",
                     style:
-                        TextStyle(color: Colors.grey.shade900, fontSize: (16)),
+                        TextStyle(color: Colors.grey.shade900, fontSize: (20)),
                   ),
                   Expanded(
                       child: Divider(
                     thickness: 2,
-                    color: Colors.grey.shade400,
+                    color: Colors.grey.shade500,
                   )),
                 ],
               ),
@@ -141,7 +141,7 @@ class _loginPageState extends State<loginPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "don't have an account?",
+                    "Don't have an account?",
                     style:
                         TextStyle(color: Colors.grey.shade900, fontSize: (15)),
                   ),
@@ -151,7 +151,7 @@ class _loginPageState extends State<loginPage> {
                   GestureDetector(
                     onTap: widget.onTap,
                     child: Text(
-                      "register here",
+                      "Register here",
                       style: TextStyle(
                           color: Colors.grey.shade500, fontSize: (15)),
                     ),

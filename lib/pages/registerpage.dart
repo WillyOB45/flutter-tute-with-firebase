@@ -88,7 +88,7 @@ class _registerpageState extends State<registerpage> {
               Container(
                 alignment: Alignment.centerRight,
                 child: const Text(
-                  "forget password?",
+                  "Forget password?",
                   style: TextStyle(fontSize: (17)),
                   textAlign: TextAlign.right,
                 ),
@@ -111,17 +111,17 @@ class _registerpageState extends State<registerpage> {
                   Expanded(
                       child: Divider(
                     thickness: 2,
-                    color: Colors.grey.shade400,
+                    color: Colors.grey.shade500,
                   )),
                   Text(
                     "or continue with",
                     style:
-                        TextStyle(color: Colors.grey.shade900, fontSize: (16)),
+                        TextStyle(color: Colors.grey.shade900, fontSize: (20)),
                   ),
                   Expanded(
                       child: Divider(
                     thickness: 2,
-                    color: Colors.grey.shade400,
+                    color: Colors.grey.shade500,
                   )),
                 ],
               ),
@@ -151,7 +151,7 @@ class _registerpageState extends State<registerpage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "already have an account?",
+                    "Already have an account?",
                     style:
                         TextStyle(color: Colors.grey.shade900, fontSize: (15)),
                   ),
