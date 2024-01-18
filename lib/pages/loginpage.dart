@@ -46,7 +46,7 @@ class _loginPageState extends State<loginPage> {
 
               //welcome message
               const Text(
-                "welcome! you are be missed",
+                "welcome! you have be missed",
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.grey,
