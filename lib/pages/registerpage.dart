@@ -87,9 +87,9 @@ class _registerpageState extends State<registerpage> {
 
               Container(
                 alignment: Alignment.centerRight,
-                child: const Text(
+                child: Text(
                   "Forget password?",
-                  style: TextStyle(fontSize: (17)),
+                  style: TextStyle(fontSize: (17), color: Colors.grey.shade500),
                   textAlign: TextAlign.right,
                 ),
               ),
