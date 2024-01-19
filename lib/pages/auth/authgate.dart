@@ -3,8 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_tute/pages/auth/login_or_registerpage.dart';
 import 'package:flutter_tute/pages/homepage.dart';
 
-class authgate extends StatelessWidget {
-  const authgate({super.key});
+class authpage extends StatelessWidget {
+  const authpage({super.key});
 
   @override
   Widget build(BuildContext context) {

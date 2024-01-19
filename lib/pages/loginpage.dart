@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tute/pages/auth/authservices.dart';
 import 'package:flutter_tute/pages/util/aquaretitiles.dart';
 import 'package:flutter_tute/pages/util/my_button.dart';
 import 'package:flutter_tute/pages/util/my_textfield.dart';
@@ -17,6 +18,26 @@ class _loginPageState extends State<loginPage> {
   final TextEditingController _emailcontroller = TextEditingController();
 
   final TextEditingController _passwordcontroller = TextEditingController();
+
+  //sigin in method
+  void _signin(BuildContext context) async {
+    // get auth serive
+    final authServices = AuthServices();
+    // try login
+    try {
+      await authServices.siginwithemailpassword(
+          _emailcontroller.text, _passwordcontroller.text);
+    }
+    // catch error
+    catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text(e.toString()),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +111,9 @@ class _loginPageState extends State<loginPage> {
               ),
 
               //my button
-              GestureDetector(onTap: () {}, child: my_button(title: "Log in")),
+              GestureDetector(
+                  onTap: () => _signin(context),
+                  child: my_button(title: "Log in")),
 
               const SizedBox(
                 height: 30,

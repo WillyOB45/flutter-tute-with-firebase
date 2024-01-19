@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tute/pages/auth/authservices.dart';
 
-class homepage extends StatelessWidget {
+class homepage extends StatefulWidget {
   const homepage({super.key});
+
+  @override
+  State<homepage> createState() => _homepageState();
+}
+
+class _homepageState extends State<homepage> {
+  // sign out method
+  void _signout() {
+    // get authservices
+    final _auth = AuthServices();
+    _auth.signout();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -199,7 +212,8 @@ class homepage extends StatelessWidget {
                       )
                     ],
                   ),
-                )
+                ),
+                IconButton(onPressed: _signout, icon: Icon(Icons.logout))
               ],
             ),
           ))
