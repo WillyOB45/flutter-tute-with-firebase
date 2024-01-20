@@ -33,7 +33,11 @@ class _loginPageState extends State<loginPage> {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text("invaild email"),
+          backgroundColor: Colors.grey,
+          title: Text(
+            "invaild email",
+            style: TextStyle(color: Colors.white),
+          ),
         ),
       );
     }
