@@ -33,7 +33,7 @@ class _loginPageState extends State<loginPage> {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text(e.toString()),
+          title: Text("invaild email"),
         ),
       );
     }
