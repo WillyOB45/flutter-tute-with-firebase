@@ -48,13 +48,7 @@ class _homepageState extends State<homepage> {
                             "assets/man.png",
                           ),
                         ),
-                        const Text(
-                          "Card Management",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: (20),
-                              fontWeight: FontWeight.bold),
-                        ),
+
                         Container(
                           height: 40,
                           width: 40,
@@ -68,6 +62,32 @@ class _homepageState extends State<homepage> {
                             color: Colors.white,
                           ),
                         ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Hello,",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: (25),
+                              fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          "chuks",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: (25),
+                            // fontWeight: FontWeight.bold),
+                          ),
+                        )
                       ],
                     ),
                     const SizedBox(

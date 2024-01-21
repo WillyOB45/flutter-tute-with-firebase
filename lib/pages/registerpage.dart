@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tute/pages/auth/authservices.dart';
 import 'package:flutter_tute/pages/util/aquaretitiles.dart';
 import 'package:flutter_tute/pages/util/my_button.dart';
 import 'package:flutter_tute/pages/util/my_textfield.dart';
@@ -16,6 +17,38 @@ class _registerpageState extends State<registerpage> {
   final TextEditingController _passwordcontroller = TextEditingController();
   final TextEditingController _confirmpasswordcontroller =
       TextEditingController();
+
+  void _signup(BuildContext context) {
+    final _auth = AuthServices();
+    if (_passwordcontroller == _confirmpasswordcontroller) {
+      try {
+        _auth.siginwithemailpassword(
+            _emailcontroller.text, _passwordcontroller.text);
+      } catch (e) {
+        showDialog(
+          context: context,
+          builder: (context) => const AlertDialog(
+            backgroundColor: Colors.grey,
+            title: Text(
+              "invaild email",
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        );
+      }
+    } else {
+      showDialog(
+        context: context,
+        builder: (context) => const AlertDialog(
+          backgroundColor: Colors.grey,
+          title: Text(
+            "wrong password",
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -100,7 +133,8 @@ class _registerpageState extends State<registerpage> {
 
               //my button
               GestureDetector(
-                  onTap: () {}, child: my_button(title: "register")),
+                  onTap: () => _signup(context),
+                  child: my_button(title: "register")),
 
               const SizedBox(
                 height: 30,
