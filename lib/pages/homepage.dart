@@ -169,7 +169,7 @@ class _homepageState extends State<homepage> {
           ),
           Expanded(
               child: Container(
-            color: Colors.grey.shade400,
+            color: Colors.grey.shade300,
             child: Column(
               children: [
                 const SizedBox(
