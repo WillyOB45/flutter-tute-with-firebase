@@ -23,7 +23,7 @@ class _registerpageState extends State<registerpage> {
     if (_passwordcontroller == _confirmpasswordcontroller) {
       try {
         _auth.siginwithemailpassword(
-            _emailcontroller.text, _passwordcontroller.text);
+            _emailcontroller.toString(), _passwordcontroller.toString());
       } catch (e) {
         showDialog(
           context: context,
