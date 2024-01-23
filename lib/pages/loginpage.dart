@@ -14,6 +14,7 @@ class loginPage extends StatefulWidget {
   State<loginPage> createState() => _loginPageState();
 }
 
+// ignore: camel_case_types
 class _loginPageState extends State<loginPage> {
   final TextEditingController _emailcontroller = TextEditingController();
 

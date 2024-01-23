@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tute/pages/auth/authservices.dart';
+import 'package:flutter_tute/pages/util/card_tile.dart';
 
 class homepage extends StatefulWidget {
   const homepage({super.key});
@@ -93,11 +94,7 @@ class _homepageState extends State<homepage> {
                     const SizedBox(
                       height: 50,
                     ),
-                    Container(
-                      height: 200,
-                      width: 500,
-                      color: Colors.grey.shade900,
-                    ),
+                    const cardTile(),
                     const SizedBox(
                       height: 40,
                     ),
