@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tute/pages/auth/authservices.dart';
-import 'package:flutter_tute/pages/util/aquaretitiles.dart';
 import 'package:flutter_tute/pages/util/my_button.dart';
 import 'package:flutter_tute/pages/util/my_textfield.dart';
+import 'package:flutter_tute/pages/util/squaretile.dart';
 
 // ignore: camel_case_types
 class loginPage extends StatefulWidget {
@@ -148,16 +148,16 @@ class _loginPageState extends State<loginPage> {
               ),
 
               // google and apple account
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  squaretile(
+                  squareTile(
                     imagepath: "assets/google.png",
                   ),
-                  const SizedBox(
+                  SizedBox(
                     width: 10,
                   ),
-                  squaretile(
+                  squareTile(
                     imagepath: "assets/applelogo.png",
                   ),
                 ],
