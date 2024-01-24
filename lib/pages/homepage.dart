@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tute/pages/auth/authservices.dart';
 import 'package:flutter_tute/pages/util/card_tile.dart';
 
-class homepage extends StatefulWidget {
-  const homepage({super.key});
+class homePage extends StatefulWidget {
+  const homePage({super.key});
 
   @override
-  State<homepage> createState() => _homepageState();
+  State<homePage> createState() => _homePageState();
 }
 
-class _homepageState extends State<homepage> {
+class _homePageState extends State<homePage> {
   // sign out method
   void _signout() {
     // get authservices

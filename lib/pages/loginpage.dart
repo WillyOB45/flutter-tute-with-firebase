@@ -17,8 +17,14 @@ class loginPage extends StatefulWidget {
 // ignore: camel_case_types
 class _loginPageState extends State<loginPage> {
   final TextEditingController _emailcontroller = TextEditingController();
-
   final TextEditingController _passwordcontroller = TextEditingController();
+
+  @override
+  void dispose() {
+    _emailcontroller.dispose();
+    _passwordcontroller.dispose();
+    super.dispose();
+  }
 
   //sigin in method
   void _signin(BuildContext context) async {
