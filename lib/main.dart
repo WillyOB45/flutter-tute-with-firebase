@@ -6,6 +6,7 @@ import 'package:flutter_tute/pages/auth/login_or_registerpage.dart';
 import 'package:flutter_tute/pages/homepage.dart';
 import 'package:flutter_tute/pages/loginpage.dart';
 import 'package:flutter_tute/pages/registerpage.dart';
+import 'package:flutter_tute/pages/widgetute.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: loginorRegister(),
+      home: widgetute(),
     );
   }
 }
