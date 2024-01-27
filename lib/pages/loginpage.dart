@@ -1,20 +1,17 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_tute/pages/auth/authservices.dart';
 import 'package:flutter_tute/pages/util/my_button.dart';
 import 'package:flutter_tute/pages/util/my_textfield.dart';
 import 'package:flutter_tute/pages/util/squaretile.dart';
 
-// ignore: camel_case_types
 class loginPage extends StatefulWidget {
-  void Function()? onTap;
-
-  loginPage({super.key, required this.onTap});
+  void Function()? onPressed;
+  loginPage({super.key, required this.onPressed});
 
   @override
   State<loginPage> createState() => _loginPageState();
 }
 
-// ignore: camel_case_types
 class _loginPageState extends State<loginPage> {
   final TextEditingController _emailcontroller = TextEditingController();
   final TextEditingController _passwordcontroller = TextEditingController();
@@ -26,28 +23,25 @@ class _loginPageState extends State<loginPage> {
     super.dispose();
   }
 
-  //sigin in method
-  void _signin(BuildContext context) async {
-    // get auth serive
-    final authServices = AuthServices();
-    // try login
-    try {
-      await authServices.siginwithemailpassword(
-          _emailcontroller.text, _passwordcontroller.text);
-    }
-    // catch error
-    catch (e) {
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          backgroundColor: Colors.grey,
-          title: Text(
-            "invaild email",
-            style: TextStyle(color: Colors.white),
-          ),
-        ),
-      );
-    }
+  //sigin method
+  Future sigin() async {
+    // loading circle
+
+    showDialog(
+      context: context,
+      builder: (context) {
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
+      },
+    );
+
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _emailcontroller.text.trim(),
+        password: _passwordcontroller.text.trim());
+
+    // pop circle
+    Navigator.pop(context);
   }
 
   @override
@@ -122,9 +116,7 @@ class _loginPageState extends State<loginPage> {
               ),
 
               //my button
-              GestureDetector(
-                  onTap: () => _signin(context),
-                  child: my_button(title: "Log in")),
+              GestureDetector(onTap: sigin, child: my_button(title: "Log in")),
 
               const SizedBox(
                 height: 30,
@@ -182,8 +174,8 @@ class _loginPageState extends State<loginPage> {
                   const SizedBox(
                     width: 5,
                   ),
-                  GestureDetector(
-                    onTap: widget.onTap,
+                  TextButton(
+                    onPressed: widget.onPressed,
                     child: Text(
                       "Register here",
                       style: TextStyle(

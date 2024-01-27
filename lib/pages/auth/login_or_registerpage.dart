@@ -25,7 +25,7 @@ class _loginorRegisterState extends State<loginorRegister> {
   Widget build(BuildContext context) {
     if (showpage) {
       return loginPage(
-        onTap: _togglespages,
+        onPressed: _togglespages,
       );
     } else {
       return registerpage(
