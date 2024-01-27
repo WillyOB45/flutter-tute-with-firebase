@@ -8,10 +8,31 @@ class widgetute extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
-        child: Container(
-          height: 100,
-          width: 100,
-          color: Colors.green,
+        child: DefaultTabController(
+          length: 3,
+          child: TabBar(
+            indicatorColor: Colors.purple,
+            dividerColor: Colors.purple,
+            tabs: [
+              Text(
+                "chat",
+                style: TextStyle(color: Colors.black),
+              ),
+              Text(
+                "chat",
+                style: TextStyle(color: Colors.black),
+              ),
+              Text(
+                "chat",
+                style: TextStyle(color: Colors.black),
+              ),
+              Expanded(
+                child: TabBarView(children:[
+                  Container(color: Colors.amber,)
+                ]),
+              )
+            ],
+          ),
         ),
       ),
     );

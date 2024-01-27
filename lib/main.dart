@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_tute/firebase_options.dart';
+import 'package:flutter_tute/pages/auth/authgate.dart';
 import 'package:flutter_tute/pages/auth/login_or_registerpage.dart';
 import 'package:flutter_tute/pages/homepage.dart';
 import 'package:flutter_tute/pages/loginpage.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: widgetute(),
+      home: authpage(),
     );
   }
 }

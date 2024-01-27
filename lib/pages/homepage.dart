@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tute/pages/auth/authservices.dart';
 import 'package:flutter_tute/pages/util/card_tile.dart';
@@ -10,6 +11,7 @@ class homePage extends StatefulWidget {
 }
 
 class _homePageState extends State<homePage> {
+  final user = FirebaseAuth.instance.currentUser;
   // sign out method
   void _signout() {
     // get authservices

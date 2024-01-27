@@ -22,8 +22,8 @@ class _registerpageState extends State<registerpage> {
     final _auth = AuthServices();
     if (_passwordcontroller == _confirmpasswordcontroller) {
       try {
-        _auth.siginwithemailpassword(
-            _emailcontroller.toString(), _passwordcontroller.toString());
+        _auth.signupwithemailpassword(
+            _emailcontroller.text, _passwordcontroller.text);
       } catch (e) {
         showDialog(
           context: context,
