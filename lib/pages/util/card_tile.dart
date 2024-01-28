@@ -23,45 +23,97 @@ class cardTile extends StatelessWidget {
             "Visa Platinum",
             style: TextStyle(
                 color: Colors.white,
-                fontSize: (20),
+                fontSize: (25),
                 fontWeight: FontWeight.bold),
           ),
           const SizedBox(
-            height: 5,
+            height: 10,
           ),
           Row(
             children: [
               Image.asset(
                 "assets/chiplogo.png",
-                height: 20,
-                width: 20,
+                height: 50,
+                width: 50,
               ),
               const SizedBox(
                 width: 15,
               ),
               Transform.rotate(
-                angle: pi / 3,
+                angle: pi / 2,
                 alignment: Alignment.center,
                 child: const Icon(
                   Icons.wifi,
-                  size: (15),
+                  size: (25),
                   color: Colors.white,
                 ),
               )
             ],
           ),
           const SizedBox(
-            height: 2,
+            height: 10,
           ),
           const Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
                 "4000",
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: (20),
+                    fontSize: (25),
                     fontWeight: FontWeight.bold),
               ),
+              SizedBox(
+                width: 20,
+              ),
+              Text(
+                "xxxx",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: (25),
+                    fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                width: 20,
+              ),
+              Text(
+                "2395",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: (25),
+                    fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                width: 20,
+              ),
+              Text(
+                "xxxx",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: (25),
+                    fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Row(
+            children: [
+              Text(
+                "E. chukwuka",
+                style: TextStyle(
+                  color: Colors.grey.shade300,
+                  fontSize: (20),
+                ),
+              ),
+              Expanded(
+                child: Image.asset(
+                  "assets/visalogo.png",
+                  height: 30,
+                  width: 30,
+                ),
+              )
             ],
           )
         ],
