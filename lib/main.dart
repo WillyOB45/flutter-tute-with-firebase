@@ -26,11 +26,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: "/",
-      routes: {
-        "/forgetpassword": (context) => forgetPassword(),
-      },
-      home: authpage(),
+      // initialRoute: "/",
+      // routes: {
+      //   "/forgetpassword": (context) => forgetPassword(),
+      // },
+      home: widgetute(),
     );
   }
 }
