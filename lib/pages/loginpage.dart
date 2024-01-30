@@ -36,9 +36,25 @@ class _loginPageState extends State<loginPage> {
       },
     );
 
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: _emailcontroller.text.trim(),
-        password: _passwordcontroller.text.trim());
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: _emailcontroller.text.trim(),
+          password: _passwordcontroller.text.trim());
+    } on FirebaseException catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return Center(
+            child: AlertDialog(
+                backgroundColor: Colors.grey,
+                title: Text(
+                  "user not found",
+                  style: TextStyle(color: Colors.white),
+                )),
+          );
+        },
+      );
+    }
 
     // pop circle
     Navigator.pop(context);
@@ -104,10 +120,18 @@ class _loginPageState extends State<loginPage> {
 
               Container(
                 alignment: Alignment.centerRight,
-                child: Text(
-                  "Forget password?",
-                  style: TextStyle(fontSize: (17), color: Colors.grey.shade500),
-                  textAlign: TextAlign.right,
+                child: TextButton(
+                  onPressed: () {
+                    setState(() {
+                      Navigator.popAndPushNamed(context, "/forgetpassword");
+                    });
+                  },
+                  child: Text(
+                    "Forget password?",
+                    style:
+                        TextStyle(fontSize: (17), color: Colors.grey.shade500),
+                    textAlign: TextAlign.right,
+                  ),
                 ),
               ),
 

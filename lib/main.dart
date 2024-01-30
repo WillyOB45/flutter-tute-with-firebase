@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_tute/firebase_options.dart';
 import 'package:flutter_tute/pages/auth/authgate.dart';
 import 'package:flutter_tute/pages/auth/login_or_registerpage.dart';
+import 'package:flutter_tute/pages/forgetpassword.dart';
 import 'package:flutter_tute/pages/homepage.dart';
 import 'package:flutter_tute/pages/loginpage.dart';
 import 'package:flutter_tute/pages/registerpage.dart';
@@ -23,8 +24,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
+      initialRoute: "/",
+      routes: {
+        "/forgetpassword": (context) => forgetPassword(),
+      },
       home: authpage(),
     );
   }
