@@ -20,17 +20,18 @@ class _registerpageState extends State<registerpage> {
 
   void _signup(BuildContext context) {
     final _auth = AuthServices();
-    if (_passwordcontroller == _confirmpasswordcontroller) {
+    if (_passwordcontroller.text.trim() ==
+        _confirmpasswordcontroller.text.trim()) {
       try {
         _auth.signupwithemailpassword(
-            _emailcontroller.text, _passwordcontroller.text);
+            _emailcontroller.text.trim(), _passwordcontroller.text.trim());
       } catch (e) {
         showDialog(
           context: context,
-          builder: (context) => const AlertDialog(
+          builder: (context) => AlertDialog(
             backgroundColor: Colors.grey,
             title: Text(
-              "invaild email",
+              "{}",
               style: TextStyle(color: Colors.white),
             ),
           ),
@@ -42,7 +43,7 @@ class _registerpageState extends State<registerpage> {
         builder: (context) => const AlertDialog(
           backgroundColor: Colors.grey,
           title: Text(
-            "wrong password",
+            "password not the same!",
             style: TextStyle(color: Colors.white),
           ),
         ),
