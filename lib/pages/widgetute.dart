@@ -8,19 +8,23 @@ class widgetute extends StatelessWidget {
     const Picdetails(
         picsname: "visalogo",
         picname2: "bank card logo",
-        urlname: "assets/visalogo.png"),
+        urlname: "assets/visalogo.png",
+        colorname: Colors.purple),
     const Picdetails(
         picsname: "visalogo",
         picname2: "bank card logo",
-        urlname: "assets/visalogo.png"),
+        urlname: "assets/visalogo.png",
+        colorname: Colors.blueGrey),
     const Picdetails(
         picsname: "visalogo",
         picname2: "bank card logo",
-        urlname: "assets/visalogo.png"),
+        urlname: "assets/visalogo.png",
+        colorname: Colors.orange),
     const Picdetails(
         picsname: "chips logo",
         picname2: "chips",
-        urlname: "assets/chiplogo.png")
+        urlname: "assets/chiplogo.png",
+        colorname: Colors.blue)
   ];
   widgetute({super.key});
 
@@ -59,7 +63,11 @@ class Picdetails {
   final String? picsname;
   final String? picname2;
   final String? urlname;
+  final Color? colorname;
 
   const Picdetails(
-      {required this.picsname, required this.picname2, required this.urlname});
+      {required this.picsname,
+      required this.picname2,
+      required this.urlname,
+      required this.colorname});
 }

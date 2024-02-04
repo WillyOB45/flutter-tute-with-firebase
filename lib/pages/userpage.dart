@@ -20,7 +20,7 @@ class userpage extends StatelessWidget {
               Picdetails.urlname,
               height: 500,
               width: 300,
-              color: Colors.green,
+              color: Picdetails.colorname,
             ),
           ),
           const SizedBox(
