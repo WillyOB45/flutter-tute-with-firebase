@@ -41,21 +41,12 @@ class _loginPageState extends State<loginPage> {
           email: _emailcontroller.text.trim(),
           password: _passwordcontroller.text.trim());
     } on FirebaseException catch (e) {
-      if (e.code == "user-not-found") {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            backgroundColor: Colors.black,
-            content: const Text(
-              "user not found",
-              style: TextStyle(color: Colors.white, fontSize: (15)),
-            )));
-      } else if (e.code == "wrong-password") {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            backgroundColor: Colors.black,
-            content: const Text(
-              "wrond password",
-              style: TextStyle(color: Colors.white, fontSize: (15)),
-            )));
-      }
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          backgroundColor: Colors.black,
+          content: const Text(
+            "wrong password",
+            style: TextStyle(color: Colors.white, fontSize: (15)),
+          )));
     }
 
     // pop circle
