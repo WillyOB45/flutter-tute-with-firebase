@@ -1,5 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_tute/pages/auth/authservices.dart';
 import 'package:flutter_tute/pages/util/my_button.dart';
 import 'package:flutter_tute/pages/util/my_textfield.dart';
 import 'package:flutter_tute/pages/util/squaretile.dart';
@@ -18,39 +18,32 @@ class _registerpageState extends State<registerpage> {
   final TextEditingController _passwordcontroller = TextEditingController();
   final TextEditingController _confirmpasswordcontroller =
       TextEditingController();
+  final Authcontroller _authcontroller = Get.put(Authcontroller());
 
-  Future _signup() async {
-    if (_passwordcontroller.text.trim() ==
-        _confirmpasswordcontroller.text.trim()) {
-      return null;
-    } else {
-      Get.snackbar(
-        "invaild password",
-        "please, confirm your password",
-        snackPosition: SnackPosition.BOTTOM,
-        backgroundColor: Colors.black,
-        colorText: Colors.white,
-        forwardAnimationCurve: Curves.bounceIn,
-        duration: const Duration(seconds: 3),
-      );
-    }
+  _signup() async {
     try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: _emailcontroller.text.trim(),
-          password: _confirmpasswordcontroller.text.trim());
+      if (_passwordcontroller.text.trim() ==
+          _confirmpasswordcontroller.text.trim()) {
+        return null;
+      } else if (_passwordcontroller.text.trim() !=
+          _confirmpasswordcontroller.text.trim()) {
+        return Get.snackbar(
+          "invaild password",
+          "please, confirm password",
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Colors.black,
+          colorText: Colors.white,
+          forwardAnimationCurve: Curves.bounceIn,
+          duration: const Duration(seconds: 3),
+        );
+      }
+
+      await _authcontroller.sigupwithEmailandPassword(
+          _emailcontroller.text.trim(), _passwordcontroller.text.trim());
+    } catch (e) {
       Get.snackbar(
-        "user successfully created",
+        "$e",
         "",
-        snackPosition: SnackPosition.BOTTOM,
-        backgroundColor: Colors.black,
-        colorText: Colors.white,
-        forwardAnimationCurve: Curves.bounceIn,
-        duration: const Duration(seconds: 3),
-      );
-    } on FirebaseAuthException catch (e) {
-      Get.snackbar(
-        "errors occured!",
-        e.code.toString(),
         snackPosition: SnackPosition.BOTTOM,
         backgroundColor: Colors.black,
         colorText: Colors.white,
@@ -143,7 +136,12 @@ class _registerpageState extends State<registerpage> {
 
               //my button
               GestureDetector(
-                  onTap: () => _signup, child: my_button(title: "register")),
+                  onTap: () {
+                    setState(() {
+                      _signup();
+                    });
+                  },
+                  child: my_button(title: "register")),
 
               const SizedBox(
                 height: 30,

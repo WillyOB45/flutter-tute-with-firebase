@@ -1,5 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_tute/pages/auth/authservices.dart';
 import 'package:flutter_tute/pages/util/my_textfield.dart';
 import 'package:get/get.dart';
 
@@ -13,25 +13,16 @@ class forgetPassword extends StatefulWidget {
 class _forgetPasswordState extends State<forgetPassword> {
   final TextEditingController _emailcontroller = TextEditingController();
 
-  //reset password
+  final Authcontroller _authcontroller = Get.put(Authcontroller());
 
-  Future resetPassowrd() async {
+  //reset password
+  _firebaseResetpassword() async {
     try {
-      await FirebaseAuth.instance
-          .sendPasswordResetEmail(email: _emailcontroller.text.trim());
+      await _authcontroller.resetPassword(_emailcontroller.text.trim());
+    } catch (e) {
       Get.snackbar(
-        "email verification code successfully sent!",
+        "$e",
         "",
-        snackPosition: SnackPosition.BOTTOM,
-        backgroundColor: Colors.black,
-        colorText: Colors.white,
-        forwardAnimationCurve: Curves.bounceIn,
-        duration: const Duration(seconds: 3),
-      );
-    } on FirebaseAuth catch (e) {
-      Get.snackbar(
-        e.toString(),
-        e.toString(),
         snackPosition: SnackPosition.BOTTOM,
         backgroundColor: Colors.black,
         colorText: Colors.white,
@@ -66,7 +57,11 @@ class _forgetPasswordState extends State<forgetPassword> {
                 height: 20,
               ),
               MaterialButton(
-                onPressed: resetPassowrd,
+                onPressed: () {
+                  setState(() {
+                    _firebaseResetpassword();
+                  });
+                },
                 color: Colors.grey.shade900,
                 child: const Text(
                   "Enter",

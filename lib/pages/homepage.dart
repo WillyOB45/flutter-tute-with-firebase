@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tute/pages/auth/authservices.dart';
 import 'package:flutter_tute/pages/util/card_tile.dart';
+import 'package:get/get.dart';
 
 class homePage extends StatefulWidget {
   const homePage({super.key});
@@ -11,13 +12,7 @@ class homePage extends StatefulWidget {
 }
 
 class _homePageState extends State<homePage> {
-  final user = FirebaseAuth.instance.currentUser;
-  // sign out method
-  void _signout() {
-    // get authservices
-    final _auth = AuthServices();
-    _auth.signout();
-  }
+  final Authcontroller _authcontroller = Get.put(Authcontroller());
 
   @override
   Widget build(BuildContext context) {
@@ -232,7 +227,9 @@ class _homePageState extends State<homePage> {
                     ],
                   ),
                 ),
-                IconButton(onPressed: _signout, icon: Icon(Icons.logout))
+                IconButton(
+                    onPressed: () => _authcontroller.siginOut(),
+                    icon: Icon(Icons.logout))
               ],
             ),
           ))

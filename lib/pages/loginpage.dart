@@ -1,5 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_tute/pages/auth/authservices.dart';
 import 'package:flutter_tute/pages/util/my_button.dart';
 import 'package:flutter_tute/pages/util/my_textfield.dart';
 import 'package:flutter_tute/pages/util/squaretile.dart';
@@ -16,6 +16,7 @@ class loginPage extends StatefulWidget {
 class _loginPageState extends State<loginPage> {
   final TextEditingController _emailcontroller = TextEditingController();
   final TextEditingController _passwordcontroller = TextEditingController();
+  final Authcontroller _authcontroller = Get.put(Authcontroller());
 
   @override
   void dispose() {
@@ -25,15 +26,14 @@ class _loginPageState extends State<loginPage> {
   }
 
   //sigin method
-  sigin() async {
+  _sigin() async {
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: _emailcontroller.text.trim(),
-          password: _passwordcontroller.text.trim());
-    } on FirebaseAuthException catch (e) {
+      await _authcontroller.siginwithEmailandPassword(
+          _emailcontroller.text.trim(), _passwordcontroller.text.trim());
+    } catch (e) {
       Get.snackbar(
-        "invaild details",
-        e.code.toString(),
+        "$e",
+        "",
         snackPosition: SnackPosition.BOTTOM,
         backgroundColor: Colors.black,
         colorText: Colors.white,
@@ -123,7 +123,7 @@ class _loginPageState extends State<loginPage> {
               ),
 
               //my button
-              GestureDetector(onTap: sigin, child: my_button(title: "Log in")),
+              GestureDetector(onTap: _sigin, child: my_button(title: "Log in")),
 
               const SizedBox(
                 height: 30,
