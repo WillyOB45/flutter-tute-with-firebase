@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tute/pages/util/my_button.dart';
 import 'package:flutter_tute/pages/util/my_textfield.dart';
 import 'package:flutter_tute/pages/util/squaretile.dart';
+import 'package:get/get.dart';
 
 class loginPage extends StatefulWidget {
   void Function()? onPressed;
@@ -24,33 +25,22 @@ class _loginPageState extends State<loginPage> {
   }
 
   //sigin method
-  Future sigin() async {
-    // loading circle
-
-    showDialog(
-      context: context,
-      builder: (context) {
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
-      },
-    );
-
+  sigin() async {
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: _emailcontroller.text.trim(),
           password: _passwordcontroller.text.trim());
-    } on FirebaseException catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          backgroundColor: Colors.black,
-          content: const Text(
-            "wrong password",
-            style: TextStyle(color: Colors.white, fontSize: (15)),
-          )));
+    } on FirebaseAuthException catch (e) {
+      Get.snackbar(
+        "invaild details",
+        e.code.toString(),
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.black,
+        colorText: Colors.white,
+        forwardAnimationCurve: Curves.bounceIn,
+        duration: const Duration(seconds: 3),
+      );
     }
-
-    // pop circle
-    Navigator.pop(context);
   }
 
   @override

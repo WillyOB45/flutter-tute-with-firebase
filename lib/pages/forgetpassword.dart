@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tute/pages/util/my_textfield.dart';
+import 'package:get/get.dart';
 
 class forgetPassword extends StatefulWidget {
   const forgetPassword({super.key});
@@ -15,28 +16,27 @@ class _forgetPasswordState extends State<forgetPassword> {
   //reset password
 
   Future resetPassowrd() async {
-    //loading circle
-    showDialog(
-      context: context,
-      builder: (context) {
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
-      },
-    );
     try {
       await FirebaseAuth.instance
           .sendPasswordResetEmail(email: _emailcontroller.text.trim());
-      Navigator.pop(context);
-    } on FirebaseAuthException catch (e) {
-      // show message
-      return showDialog(
-        context: context,
-        builder: (context) {
-          return const AlertDialog(
-            title: Text("Email sent successfully"),
-          );
-        },
+      Get.snackbar(
+        "email verification code successfully sent!",
+        "",
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.black,
+        colorText: Colors.white,
+        forwardAnimationCurve: Curves.bounceIn,
+        duration: const Duration(seconds: 3),
+      );
+    } on FirebaseAuth catch (e) {
+      Get.snackbar(
+        e.toString(),
+        e.toString(),
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.black,
+        colorText: Colors.white,
+        forwardAnimationCurve: Curves.bounceIn,
+        duration: const Duration(seconds: 3),
       );
     }
   }

@@ -9,6 +9,7 @@ import 'package:flutter_tute/pages/forgetpassword.dart';
 // import 'package:flutter_tute/pages/loginpage.dart';
 // import 'package:flutter_tute/pages/registerpage.dart';
 // import 'package:flutter_tute/pages/widgetute.dart';
+import 'package:get/get.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: "/",
       routes: {
