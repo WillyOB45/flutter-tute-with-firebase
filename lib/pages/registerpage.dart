@@ -5,15 +5,15 @@ import 'package:flutter_tute/pages/util/my_textfield.dart';
 import 'package:flutter_tute/pages/util/squaretile.dart';
 import 'package:get/get.dart';
 
-class registerpage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   void Function()? onPressed;
-  registerpage({super.key, required this.onPressed});
+  RegisterPage({super.key, required this.onPressed});
 
   @override
-  State<registerpage> createState() => _registerpageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _registerpageState extends State<registerpage> {
+class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController _emailcontroller = TextEditingController();
   final TextEditingController _passwordcontroller = TextEditingController();
   final TextEditingController _confirmpasswordcontroller =
@@ -21,15 +21,15 @@ class _registerpageState extends State<registerpage> {
   final Authcontroller _authcontroller = Get.put(Authcontroller());
 
   _signup() async {
-    try {
-      if (_passwordcontroller.text.trim() ==
-          _confirmpasswordcontroller.text.trim()) {
-        return null;
-      } else if (_passwordcontroller.text.trim() !=
-          _confirmpasswordcontroller.text.trim()) {
-        return Get.snackbar(
-          "invaild password",
-          "please, confirm password",
+    if (_passwordcontroller.text.trim() ==
+        _confirmpasswordcontroller.text.trim()) {
+      try {
+        await _authcontroller.sigupwithEmailandPassword(
+            _emailcontroller.text.trim(), _passwordcontroller.text.trim());
+      } catch (e) {
+        Get.snackbar(
+          "$e",
+          "",
           snackPosition: SnackPosition.BOTTOM,
           backgroundColor: Colors.black,
           colorText: Colors.white,
@@ -37,13 +37,11 @@ class _registerpageState extends State<registerpage> {
           duration: const Duration(seconds: 3),
         );
       }
-
-      await _authcontroller.sigupwithEmailandPassword(
-          _emailcontroller.text.trim(), _passwordcontroller.text.trim());
-    } catch (e) {
-      Get.snackbar(
-        "$e",
-        "",
+    } else if (_passwordcontroller.text.trim() !=
+        _confirmpasswordcontroller.text.trim()) {
+      return Get.snackbar(
+        "invaild password",
+        "please, confirm password",
         snackPosition: SnackPosition.BOTTOM,
         backgroundColor: Colors.black,
         colorText: Colors.white,

@@ -28,7 +28,7 @@ class _loginorRegisterState extends State<loginorRegister> {
         onPressed: _togglespages,
       );
     } else {
-      return registerpage(
+      return RegisterPage(
         onPressed: _togglespages,
       );
     }

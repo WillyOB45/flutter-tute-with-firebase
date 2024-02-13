@@ -64,7 +64,7 @@ class Authcontroller extends GetxController {
     try {
       await _auth.sendPasswordResetEmail(email: email);
       Get.snackbar(
-        "verification successfully sent!",
+        "verification code successfully sent!",
         "",
         snackPosition: SnackPosition.BOTTOM,
         backgroundColor: Colors.black,
