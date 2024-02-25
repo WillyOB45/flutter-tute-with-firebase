@@ -229,7 +229,20 @@ class _homePageState extends State<homePage> {
                 ),
                 IconButton(
                     onPressed: () => _authcontroller.siginOut(),
-                    icon: Icon(Icons.logout))
+                    icon: Icon(Icons.logout)),
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: 10,
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        height: 50,
+                        width: 50,
+                        color: Colors.amber,
+                      );
+                    },
+                  ),
+                )
               ],
             ),
           ))
